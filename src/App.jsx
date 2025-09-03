@@ -11,13 +11,13 @@ import Map from "./Components/Map";
 
 const App = () => {
   return (
-    <div className="">
+    <div>
       <div
         style={{
           background: "url('/hero-background.svg') no-repeat center center",
           backgroundSize: "cover",
         }}
-        className="min-h-screen flex flex-col"
+        className="min-h-screen  flex flex-col"
       >
         <Navbar />
         <Hero />
