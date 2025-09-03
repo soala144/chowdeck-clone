@@ -36,7 +36,7 @@ const App = () => {
       <Map />
       <Stories />
       <FAQS />
-      <div className="bg-[#000000] pt-[650px] -mt-[100px]">
+      <div className="bg-[#000000] pt-[650px] -mt-[500px]">
         <p className="text-white text-center">
           &copy; {new Date().getFullYear()} Chowdeck. All rights reserved.
         </p>

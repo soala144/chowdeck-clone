@@ -20,25 +20,24 @@
 .custom-scrollbar::-webkit-scrollbar {
   width: 16px; /* bigger scrollbar */
 }
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #d1d5dc; /* light gray track */
-  border-radius: 14px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #ffffff; /* white thumb */
-  border-radius: 12px;
-  border: 4px solid #d1d5dc; /* creates spacing inside the track */
-}
-
-/* Remove scrollbar buttons (arrows) */
-.custom-scrollbar::-webkit-scrollbar-button {
-  display: none;
-}
-
-/* Firefox support */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #ffffff #d1d5dc;
+  scrollbar-color: #0c513f #f3f4f6;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 50px;
+  background: #f3f4f6;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #0c513f;
+  border-radius: 12px;
+  min-height: 40px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 14px;
+}
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
 }
