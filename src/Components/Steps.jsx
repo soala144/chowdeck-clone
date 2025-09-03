@@ -4,88 +4,78 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { IoLocation } from "react-icons/io5";
 
-const dummySteps = [
+const stepsData = [
   {
-    bg: "bg-orange-400",
+    bg: "#f59e42",
+    img: "/african-meals.svg",
+    title: "Get Started in three",
+  },
+  {
+    bg: "#0C513F",
+    img: "/Fastfoodxsnacks.svg",
+    title: "Download the app",
+  },
+  {
+    bg: "#3B82F6",
     img: "/drink.svg",
     title: "Explore Categories",
-    items: ["star", "01", "02", "03"],
-    content: ["Star", "Step 1", "Step 2", "Step 3"],
   },
   {
-    bg: "bg-green-400",
-    img: "/meal.png",
-    title: "Order Meals",
-    items: ["star", "01", "02", "03"],
-    content: ["Star", "Order", "Pay", "Enjoy"],
-  },
-  {
-    bg: "bg-blue-400",
-    img: "/pickup.png",
+    bg: "#2563eb",
+    img: "/Fitfam.svg",
     title: "Pickup & Delivery",
-    items: ["star", "01", "02", "03"],
-    content: ["Star", "Pickup", "Deliver", "Rate"],
+  },
+  {
+    bg: "#eab308",
+    img: "/Pack.svg",
+    title: "Unpack and Enjoy",
   },
 ];
 
-const COUNTDOWN_TIME = 2; // seconds per item
+const COUNTDOWN_TIME = 3; // seconds per item
+const divs = [
+  { type: "location", icon: <CiLocationOn size={32} /> },
+  { type: "step", label: "01" },
+  { type: "step", label: "02" },
+  { type: "step", label: "03" },
+  { type: "star", img: "/Star.jpeg" },
+];
 
 const Steps = () => {
   const [stepIdx, setStepIdx] = useState(0);
-  const [activeItem, setActiveItem] = useState(0);
+  const [activeDiv, setActiveDiv] = useState(0);
   const timerRef = useRef();
 
-  // Handle countdown and item switching
+  // Only change image, title, bg when activeDiv changes
   useEffect(() => {
     timerRef.current = setTimeout(() => {
-      // Move to next step and next div in sequence
-      let nextStepIdx = stepIdx;
-      let nextActiveItem = activeItem + 1;
-      if (nextActiveItem >= dummySteps[stepIdx].items.length) {
-        nextActiveItem = 0;
-        nextStepIdx = (stepIdx + 1) % dummySteps.length;
-      } else {
-        nextStepIdx = (stepIdx + 1) % dummySteps.length;
-      }
+      // Move to next div and update stepIdx so UI changes every time
+      let nextDiv = (activeDiv + 1) % divs.length;
+      let nextStepIdx = (stepIdx + 1) % stepsData.length;
+      setActiveDiv(nextDiv);
       setStepIdx(nextStepIdx);
-      setActiveItem(nextActiveItem);
     }, COUNTDOWN_TIME * 1000);
     return () => clearTimeout(timerRef.current);
-  }, [activeItem, stepIdx]);
-
-  // Helper to get previous and next positions in the sequence
-  const getPrev = () => {
-    let prevStepIdx = stepIdx;
-    let prevActiveItem = activeItem - 1;
-    if (prevActiveItem < 0) {
-      prevStepIdx = (stepIdx - 1 + dummySteps.length) % dummySteps.length;
-      prevActiveItem = dummySteps[prevStepIdx].items.length - 1;
-    }
-    return { stepIdx: prevStepIdx, activeItem: prevActiveItem };
-  };
-  const getNext = () => {
-    let nextStepIdx = stepIdx;
-    let nextActiveItem = activeItem + 1;
-    if (nextActiveItem >= dummySteps[stepIdx].items.length) {
-      nextStepIdx = (stepIdx + 1) % dummySteps.length;
-      nextActiveItem = 0;
-    }
-    return { stepIdx: nextStepIdx, activeItem: nextActiveItem };
-  };
+  }, [activeDiv, stepIdx]);
 
   // Arrow controls
   const handlePrev = () => {
-    const prev = getPrev();
-    setStepIdx(prev.stepIdx);
-    setActiveItem(prev.activeItem);
+    let prevDiv = activeDiv - 1;
+    let prevStepIdx = (stepIdx - 1 + stepsData.length) % stepsData.length;
+    if (prevDiv < 0) {
+      prevDiv = divs.length - 1;
+    }
+    setActiveDiv(prevDiv);
+    setStepIdx(prevStepIdx);
   };
   const handleNext = () => {
-    const next = getNext();
-    setStepIdx(next.stepIdx);
-    setActiveItem(next.activeItem);
+    let nextDiv = (activeDiv + 1) % divs.length;
+    let nextStepIdx = (stepIdx + 1) % stepsData.length;
+    setActiveDiv(nextDiv);
+    setStepIdx(nextStepIdx);
   };
 
-  const step = dummySteps[stepIdx];
+  const step = stepsData[stepIdx];
 
   // Countdown circle animation
   const CountdownCircle = ({ isActive }) => (
@@ -109,60 +99,74 @@ const Steps = () => {
   );
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={stepIdx}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className={`${step.bg} w-[90%] m-auto opacity-100 rounded-xl flex flex-col justify-around items-center py-10 shadow-2xl z-[50] relative`} // higher opacity, shadow, z-index
-        style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.25)", zIndex: 50 }}
-      >
-        <h1 className="pt-7 text-8xl pb-6 font-bold">{step.title}</h1>
-        <div className="flex justify-center items-center w-3/4 m-auto">
-          <img src={step.img} alt="step" className="w-full h-[500px]" />
-        </div>
+    <motion.div
+      key={stepIdx}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, backgroundColor: step.bg }}
+      transition={{
+        backgroundColor: { duration: 0.6 },
+        opacity: { duration: 0.3 },
+      }}
+      className={`w-[90%] m-auto opacity-100 rounded-xl flex flex-col justify-around items-center py-10 shadow-2xl relative mt-32`}
+      style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}
+    >
+      <h1 className="pt-7 text-8xl pb-6 font-bold">{step.title}</h1>
+      <div className="flex justify-center items-center w-3/4 m-auto">
+        <motion.img
+          key={step.img}
+          src={step.img}
+          alt="step"
+          className="w-full h-[500px]"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+      </div>
 
-        <div className="flex justify-between items-center mx-auto w-[90%] mt-10">
-          <div className="flex justify-between gap-2">
-            {step.items.map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center relative">
-                  {item === "star" ? (
-                    <CiLocationOn size={32} />
-                  ) : (
-                    <span className="text-xl font-bold">{item}</span>
-                  )}
-                  {/* Countdown overlay only on activeItem */}
-                  {activeItem === idx && (
-                    <div className="absolute top-0 left-0 w-16 h-16 flex items-center justify-center">
-                      <CountdownCircle isActive={true} />
-                    </div>
-                  )}
-                </div>
-                <span className="mt-2 text-xs">{step.content[idx]}</span>
+      <div className="flex justify-between items-center mx-auto w-[90%] mt-10">
+        <div className="flex justify-between gap-2">
+          {divs.map((div, idx) => (
+            <div key={idx} className="flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center relative">
+                {div.type === "location" && div.icon}
+                {div.type === "step" && (
+                  <span className="text-xl font-bold">{div.label}</span>
+                )}
+                {div.type === "star" && (
+                  <img
+                    src={div.img}
+                    alt="star"
+                    className="w-10 h-10 rounded-full"
+                  />
+                )}
+                {/* Countdown overlay only on activeDiv */}
+                {activeDiv === idx && (
+                  <div className="absolute top-0 left-0 w-16 h-16 flex items-center justify-center">
+                    <CountdownCircle isActive={true} />
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
-
-          {/* Arrows */}
-          <div className="justify-between flex gap-2">
-            <button
-              className="w-16 h-16 rounded-full bg-white flex items-center justify-center"
-              onClick={handlePrev}
-            >
-              <FaArrowLeft />
-            </button>
-            <button
-              className="w-16 h-16 rounded-full bg-white flex items-center justify-center"
-              onClick={handleNext}
-            >
-              <FaArrowRight />
-            </button>
-          </div>
+            </div>
+          ))}
         </div>
-      </motion.div>
-    </AnimatePresence>
+
+        {/* Arrows */}
+        <div className="justify-between flex gap-2">
+          <button
+            className="w-16 h-16 rounded-full bg-white flex items-center justify-center"
+            onClick={handlePrev}
+          >
+            <FaArrowLeft />
+          </button>
+          <button
+            className="w-16 h-16 rounded-full bg-white flex items-center justify-center"
+            onClick={handleNext}
+          >
+            <FaArrowRight />
+          </button>
+        </div>
+      </div>
+    </motion.div>
   );
 };
 

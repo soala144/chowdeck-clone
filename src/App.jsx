@@ -8,6 +8,8 @@ import Offers from "./Components/Offers";
 import Adverts from "./Components/ImageMarquee";
 import ImageMarquee from "./Components/PhoneAdvert";
 import Map from "./Components/Map";
+import Stories from "./Components/Stories";
+import FAQS from "./Components/FAQS";
 
 const App = () => {
   return (
@@ -32,6 +34,13 @@ const App = () => {
         <ImageMarquee />
       </div>
       <Map />
+      <Stories />
+      <FAQS />
+      <div className="bg-[#000000] pt-[650px] -mt-[100px]">
+        <p className="text-white text-center">
+          &copy; {new Date().getFullYear()} Chowdeck. All rights reserved.
+        </p>
+      </div>
     </div>
   );
 };
