@@ -34,7 +34,7 @@ const Network = () => {
   ];
 
   return (
-    <div className="w-[90%] m-auto bg-white">
+    <div className="w-[90%] m-auto bg-white mb-36 ">
       {/* Heading */}
       <div className="flex flex-col items-center mb-8 justify-center w-full">
         <div className="flex items-center gap-3">
