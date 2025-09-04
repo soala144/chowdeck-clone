@@ -68,16 +68,16 @@ const AppSide = () => {
       </div>
 
       {/* Dynamic Content Area */}
-      <div className="max-w-2xl w-full bg-white p-8 transition-all duration-500 ease-in-out">
+      <div className="md:max-w-2xl w-full  bg-white p-8 transition-all duration-500 ease-in-out">
         <div className="flex flex-col items-center">
           {/* Image */}
 
           {/* Content */}
           <div className="flex-1 text-center ">
-            <h1 className="text-6xl font-bold text-gray-800 mb-4 transition-all duration-500 ease-in-out">
+            <h1 className=" text-3xl md:text-6xl font-bold text-black mb-4 transition-all duration-500 ease-in-out">
               {currentData.heading}
             </h1>
-            <p className="text-gray-600 text-2xl mt-3 mb-6 leading-relaxed transition-all duration-500 ease-in-out">
+            <p className="text-gray-600 text-xl mt-3 mb-6 leading-relaxed transition-all duration-500 ease-in-out">
               {currentData.content}
             </p>
           </div>
@@ -101,7 +101,7 @@ const AppSide = () => {
             <img
               src="/Pastry.svg"
               alt="overlay"
-              className="absolute -top-10 -right-4 w-36 h-36 object-contain"
+              className="absolute -top-10 -right-4 md:w-36 md:h-36 h-25 w-25 object-contain"
             />
           </div>
         </div>

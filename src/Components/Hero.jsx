@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 const Hero = () => {
   const texts = [
     "Have you eaten?",
@@ -17,12 +18,21 @@ const Hero = () => {
 
     return () => clearInterval(interval); // cleanup
   }, []);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
   return (
-    <div className="pt-44 text-center">
+    <motion.div
+      id="hero-section"
+      ref={ref}
+      initial={{ opacity: 0, y: 60 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className="pt-44 text-center"
+    >
       <h1 className="text-4xl md:text-8xl font-bold mb-10"> {texts[index]}</h1>
 
       {/* Buttons */}
-      <div className="flex justify-center gap-4">
+      <div className="flex justify-center flex-col md:flex-row w-[80%] m-auto md:w-full gap-4">
         {/* Google Play */}
         <button className="flex items-center gap-2 bg-[#0C513F] text-white rounded px-8 py-4 font-medium text-sm uppercase tracking-wide">
           <img src="/playstore.png" alt="Google Play" className="w-9 h-9" />
@@ -35,7 +45,7 @@ const Hero = () => {
           <p>Download on App Store</p>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

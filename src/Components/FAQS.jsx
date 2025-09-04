@@ -82,7 +82,7 @@ const faqs = [
 const FAQS = () => {
   const [selectedIdx, setSelectedIdx] = useState(0);
   return (
-    <div className="w-[85%] bg-white m-auto border-4 opacity-99 border-black rounded-xl flex flex-col md:flex-row py-10 mt-2">
+    <div className="w-[95%] md:w-[85%] bg-white m-auto border-4 opacity-99 border-black rounded-xl flex flex-col-reverse md:flex-row py-10 mt-2">
       {/* Left: Questions list */}
 
       <div className="w-full md:w-[50%] ">
@@ -92,19 +92,14 @@ const FAQS = () => {
             {faqs.map((faq, idx) => (
               <li
                 key={idx}
-                className={`cursor-pointer px-4 mb-3 py-4 border text-xl rounded font-bold text-[#0C513F] border-green-100  transition-colors duration-200 ${
+                className={`cursor-pointer px-4 py-3 border-b border-gray-100 text-lg transition-colors duration-200 ${
                   selectedIdx === idx
-                    ? "bg-black flex justify-between items-center text-2xl text-white font-bold"
+                    ? "bg-gray-100 text-[#0C513F] font-bold"
                     : "hover:bg-gray-50"
                 }`}
                 onClick={() => setSelectedIdx(idx)}
               >
                 {faq.question}
-                {selectedIdx === idx && (
-                  <span className="text-[#FFC501] ">
-                    <TiStarburst size={32} />
-                  </span>
-                )}
               </li>
             ))}
           </ul>
@@ -117,7 +112,7 @@ const FAQS = () => {
         <div className="flex flex-col  px-8 bg-[#FFC501] w-[90%] m-auto rounded-xl py-6 min-h-[500px] overflow-y-auto custom-scrollbar ">
           <TiStarburst size={48} className=" mb-4" />
 
-          <p className=" text-2xl font-semibold">{faqs[selectedIdx].answer}</p>
+          <p className=" text-xl">{faqs[selectedIdx].answer}</p>
         </div>
       </div>
     </div>

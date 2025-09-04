@@ -48,14 +48,16 @@ const Adverts = () => {
 
   return (
     <div>
-      <Marquee className="py-6" gradient={false} speed={150}>
+      <Marquee className="py-3 md:py-6" gradient={false} speed={150}>
         {marqueeItems.map((item, index) => (
           <div
             key={index}
-            className="backdrop-blur-md bg-white/10 flex items-center px-6 py-4 rounded-xl gap-3 shadow-md mx-4"
+            className="backdrop-blur-md bg-white/10 flex items-center px-3 md:px-6 py-2 md:py-4 rounded-xl gap-2 md:gap-3 shadow-md mx-2 md:mx-4"
           >
             {item.icon}
-            <p className="text-xl font-medium text-white">{item.title}</p>
+            <p className="text-sm md:text-xl font-medium text-white">
+              {item.title}
+            </p>
           </div>
         ))}
       </Marquee>
