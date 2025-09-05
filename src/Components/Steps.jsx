@@ -107,7 +107,7 @@ const Steps = () => {
         backgroundColor: { duration: 0.6 },
         opacity: { duration: 0.3 },
       }}
-      className={`w-[95%] m-auto opacity-100 rounded-xl flex flex-col justify-around items-center py-6 md:py-10 shadow-2xl relative mt-16 md:mt-32`}
+      className={`w-[85%] m-auto opacity-100 rounded-xl flex flex-col justify-around items-center py-6 md:py-10 shadow-2xl relative mt-16 md:mt-32`}
       style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}
     >
       <h1 className="pt-4 md:pt-7 text-3xl md:text-8xl pb-4 md:pb-6 font-bold text-center">

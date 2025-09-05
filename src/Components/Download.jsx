@@ -1,11 +1,11 @@
 import React from "react";
-import { useRef } from "react";
+
 import { motion, useInView } from "framer-motion";
 const Download = () => {
   return (
-    <div className="flex w-[90%] md:flex-row flex-col m-auto mb-16 justify-between gap-2 items-center">
+    <div className="flex w-[85%] md:flex-row flex-col m-auto mb-16 justify-between gap-2 items-center">
       {/* Download */}
-      <div className="bg-[#0C513F] md:w-[49%] w-full mx-auto rounded-xl ">
+      <div className="bg-[#0C513F] md:w-[49%] w-full mx-auto rounded-xl relative">
         <div className="w-[90%] m-auto mt-10">
           <h1 className="text-6xl font-bold text-white mb-6">
             Place your <br />
@@ -38,26 +38,29 @@ const Download = () => {
           <div>
             <img src="/Promo-code.svg" alt="" />
 
-            <div className="flex gap-3 pl-7 border-4 border-black rounded-xl items-center py-3 w-[55%] md:w-[40%] bg-[#FFC501]">
+            <div className="flex gap-3 pl-7 border-4 border-black rounded-xl items-center py-3 w-[55%] md:w-[60%] bg-[#FFC501]">
               <div className="w-5 h-5 bg-[#0C513F] rounded-full border-4 border-black"></div>
               <p className="text-xl font-bold">CDNWEB</p>
             </div>
 
-            <p className="mt-5 mb-7 text-xl font-bold">
+            <p className="mt-5 mb-7 text-lg font-bold">
               Get <span className="text-[#FFC501] ">₦300 off</span> your first
-              order when you use this promo code!
+              order
+              <br /> when you use this promo code!
             </p>
           </div>
 
-          {/* <figure>
-            <img src="/drink.svg" alt="" className="h-60 w-20" />
-          </figure> */}
+          <img
+            src="/drink.svg"
+            class="w-[100px] lg:w-[210px] absolute right-2 bottom-2"
+            alt="drinks in chowdeck"
+          />
         </div>
       </div>
 
       {/* Image */}
-      <figure className="md:w-[49%] w-full m-auto">
-        <img src="/last.webp" alt="last" />
+      <figure className="md:w-[49%] w-full mx-auto">
+        <img src="/last.webp" alt="last" className=" h-[800px]" />
       </figure>
     </div>
   );

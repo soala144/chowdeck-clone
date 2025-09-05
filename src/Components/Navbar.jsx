@@ -72,7 +72,7 @@ const Navbar = () => {
         className={`hidden md:fixed md:flex top-0 left-0 w-full z-50 transition-all duration-500 `}
       >
         <div
-          className={`container mx-auto flex justify-between items-center cursor-pointer transition-all duration-500 ${
+          className={`w-[85%] mx-auto flex justify-between items-center cursor-pointer transition-all duration-500 ${
             scrolled ? "mt-2" : "mt-10"
           }`}
         >

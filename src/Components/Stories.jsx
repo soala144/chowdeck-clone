@@ -30,7 +30,7 @@ const Stories = () => {
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="w-[95%] max-w-7xl m-auto mt-10 mb-20 md:mt-16"
+      className="w-[85%] max-w-7xl m-auto mt-10 mb-20 md:mt-16"
     >
       <div className="flex gap-3 items-center md:mb-10">
         <h1 className="text-3xl md:text-6xl font-bold">Stories</h1>

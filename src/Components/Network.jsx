@@ -45,7 +45,7 @@ const Network = () => {
   };
 
   return (
-    <div className="md:w-[95%] w-[85%] m-auto bg-white mb-56 md:mb-36 ">
+    <div className="md:w-[85%] w-[85%] m-auto bg-white mb-56 md:mb-36 ">
       {/* Heading */}
       <motion.div
         className="flex flex-col items-center mb-8 justify-center w-full"

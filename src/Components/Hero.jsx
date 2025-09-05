@@ -34,13 +34,13 @@ const Hero = () => {
       {/* Buttons */}
       <div className="flex justify-center flex-col md:flex-row w-[80%] m-auto md:w-full gap-4">
         {/* Google Play */}
-        <button className="flex items-center gap-2 bg-[#0C513F] text-white rounded px-8 py-4 font-medium text-sm uppercase tracking-wide">
+        <button className="flex items-center gap-2 bg-[#0C513F] text-white rounded-xl px-8 py-4 font-medium text-sm uppercase tracking-wide">
           <img src="/playstore.png" alt="Google Play" className="w-9 h-9" />
           <p>Download on Google Play</p>
         </button>
 
         {/* App Store */}
-        <button className="flex items-center gap-2 bg-[#0C513F] text-white rounded px-8 py-4 font-medium text-sm uppercase tracking-wide">
+        <button className="flex items-center gap-2 bg-[#0C513F] text-white rounded-xl px-8 py-4 font-medium text-sm uppercase tracking-wide">
           <img src="/apple.png" alt="App Store" className="w-9 h-9" />
           <p>Download on App Store</p>
         </button>

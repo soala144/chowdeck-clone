@@ -4,7 +4,7 @@ import { TiStarburst } from "react-icons/ti";
 
 const Footer = () => {
   return (
-    <div className="w-[90%] m-auto py-16">
+    <div className="w-[85%] m-auto py-16">
       {/* NewsLetter */}
       <div className="flex items-center justify-between  ">
         <div className="flex justify-between items-center gap-2">
@@ -646,7 +646,7 @@ const Footer = () => {
       </div>
 
       <div class="text-xs text-center py-10 border-t border-[#ffffff66]">
-        <p class="text-gray-100">
+        <p class="text-gray-500">
           © All Rights Reserved. 2022, Chowdeck Logistics Inc.
         </p>
       </div>

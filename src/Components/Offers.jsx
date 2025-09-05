@@ -26,7 +26,7 @@ const Offers = () => {
     //   </p>
     // </div>
 
-    <div className="w-[95%] m-auto flex flex-col md:flex-row  justify-between gap-6 md:gap-0 py-6 md:py-12">
+    <div className="w-[85%] m-auto flex flex-col md:flex-row  justify-between gap-6 md:gap-0 py-6 md:py-12">
       <h1 className="md:text-7xl md:block font-bold text-white text-3xl hidden">
         Chowdeck has <br />
         you covered

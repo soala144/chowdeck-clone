@@ -44,7 +44,7 @@ const Map = () => {
   ];
 
   return (
-    <div className="w-[95%] flex flex-col md:flex-row m-auto my-10 border-4 border-black items-stretch rounded-xl overflow-hidden">
+    <div className="w-[85%] flex flex-col md:flex-row m-auto my-10 border-4 border-black items-stretch rounded-xl overflow-hidden">
       {/* Left side - Image with overlay text */}
       <div className="flex-1 relative min-h-[200px]">
         <img
